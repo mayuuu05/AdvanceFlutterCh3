@@ -1,3 +1,5 @@
+import 'package:advance_flutter_ch3/inAppWebView/splash_Screen.dart';
+import 'package:advance_flutter_ch3/inAppWebView/web_Screen.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
@@ -24,17 +26,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff4DAEA6),
+      backgroundColor: Colors.white,
       body: StreamBuilder(
         stream: Connectivity().onConnectivityChanged,
         builder: (context, snapshot) {
           if (snapshot.data!.contains(ConnectivityResult.mobile)) {
             return const Center(
-              child: Text('Mobile connected to Internet'),
+              child: SplashScreen(),
             );
           } else if (snapshot.data!.contains(ConnectivityResult.wifi)) {
             return const Center(
-              child: Text('Mobile connected to wifi'),
+              child: SplashScreen(),
             );
           } else {
             return Center(
@@ -46,3 +48,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
+
